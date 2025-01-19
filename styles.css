@@ -54,24 +54,42 @@ LANDING
   position: relative;
 }
 
-.img__wrapper {
+img {
+  width: 100%;
+  max-width: 450px;
+  overflow: hidden;
+}
+.movie__wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
   width: 300px;
   margin: 12px;
   border-radius: 8px;
-  box-shadow: 0.2px 4px 5px rbga(0,0,0,0.1);
-}
-
-.movie img {
-  width: 100px;
+  box-shadow: 0.2px 4px 5px rbga(0,0,0,0.1); 
 }
 
 .movie-info{
-  width: 100%;
-  max-width: 300px;
-  background-color: #fff;
+  /* border: 1px solid red;/ */
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transform: translateY(-50%);
+  color: #fff;
+  max-height: 100%;
   text-align: center;
+  
 }
 
-.movie-info::before {
-
+.movie__wrapper--bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(154, 145, 145);
+  opacity: 0.7;
 }
