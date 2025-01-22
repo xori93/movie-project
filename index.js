@@ -1,6 +1,17 @@
 // api key = 46b68acf
 // http://www.omdbapi.com/?i=tt3896198&apikey=46b68acf
 
+const searchBar = document.getElementById('search')
+const movieList = []
+console.log(searchBar)
+
+searchBar.addEventListener('keyup', (e) => {
+  console.log(e.target.value);
+  movieList.filter(user => {
+    
+  })
+});
+
 async function main() {
   const search = "marvel"
   const users = await fetch(
