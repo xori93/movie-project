@@ -6,7 +6,7 @@ async function main() {
   const users = await fetch(
     `http://www.omdbapi.com/?apikey=46b68acf&s=${search}`
   );
-  displayData(users);
+  // displayData(users);
   
   const userData = await users.json();
   console.log(userData.Search)
@@ -29,30 +29,30 @@ async function main() {
   ).join("");
 }
 
-function displayData(data) {
-  const resultsList = document.getElementById('results-list');
-  resultsList.innerHTML = ''; // Clear existing results
+// function displayData(data) {
+//   const resultsList = document.getElementById('results-list');
+//   resultsList.innerHTML = ''; // Clear existing results
 
 
-  data.forEach(item => {
-    const li = document.createElement('li')
-    li.textContent = item.Title;
-    li.dataset.id = item.id;
-    resultsList.appendChild 
-  });
-}
+//   data.forEach(item => {
+//     const li = document.createElement('li')
+//     li.textContent = item.Title;
+//     li.dataset.id = item.id;
+//     resultsList.appendChild 
+//   });
+// }
 
-function filterData() {
-  const search = document.getElementById('#search__input').value.toLowerCase()
-  const listItems = document.querySelectorAll('#results-list li');
+// function filterData() {
+//   const search = document.getElementById('#search__input').value.toLowerCase()
+//   const listItems = document.querySelectorAll('#results-list li');
 
-  listItems.forEach(item => {
-    const text = item.textContent.toLowerCase();
-    if (text.includes(users)) {
-      item.classList.remove('hidden');
-    } else {
-      item.classList.add('hidden');
-    }
-  })
-}
+//   listItems.forEach(item => {
+//     const text = item.textContent.toLowerCase();
+//     if (text.includes(users)) {
+//       item.classList.remove('hidden');
+//     } else {
+//       item.classList.add('hidden');
+//     }
+//   })
+// }
 main();
