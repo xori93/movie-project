@@ -2,68 +2,35 @@
 // http://www.omdbapi.com/?i=tt3896198&apikey=46b68acf
 
 const searchBar = document.getElementById('search')
-const movieList = []
-console.log(searchBar)
-
-searchBar.addEventListener('keyup', (e) => {
-  console.log(e.target.value);
-  movieList.filter(user => {
-    
-  })
-});
+let movieList = data.Store
+console.log(movieList)
 
 async function main() {
-  const search = "marvel"
-  const users = await fetch(
-    `http://www.omdbapi.com/?apikey=46b68acf&s=${search}`
-  );
-  // displayData(users);
+  searchBar.addEventListener('keyup', async (e) => {
+    const search = e.target.value.trim();
+    if (search.length >= 3) {
+      const response = await fetch(`http://www.omdbapi.com/?apikey=46b68acf&s=${search}`);
+      const data = await response.json();
+      movieList = data.Search || [];
   
-  const userData = await users.json();
-  console.log(userData.Search)
-  const movieList = document.querySelector(".movie-list");
-  movieList.innerHTML = userData.Search.map(
-    (user) => 
-      `<div class="container">
-        <div class="row">
-          <div class="img__wrapper">
-            <img src="${user.Poster}" 
-            alt="Image">
-            <div class="movie-info">
-              <h3>${user.Title}</h3>
-              <p>${user.Type}</p>
-              <p>${user.Year}</p>
+      const movieListElement = document.querySelector(".movie-list");
+      movieListElement.innerHTML = movieList.map(
+        (movie) => 
+          `<div class="container">
+            <div class="row">
+              <div class="img__wrapper">
+                <img src="${movie.Poster}" 
+                alt="Image">
+                <div class="movie-info">
+                  <h3>${movie.Title}</h3>
+                  <p>${movie.Type}</p>
+                  <p>${movie.Year}</p>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-    </div>`
-  ).join("");
-}
-
-// function displayData(data) {
-//   const resultsList = document.getElementById('results-list');
-//   resultsList.innerHTML = ''; // Clear existing results
-
-
-//   data.forEach(item => {
-//     const li = document.createElement('li')
-//     li.textContent = item.Title;
-//     li.dataset.id = item.id;
-//     resultsList.appendChild 
-//   });
-// }
-
-// function filterData() {
-//   const search = document.getElementById('#search__input').value.toLowerCase()
-//   const listItems = document.querySelectorAll('#results-list li');
-
-//   listItems.forEach(item => {
-//     const text = item.textContent.toLowerCase();
-//     if (text.includes(users)) {
-//       item.classList.remove('hidden');
-//     } else {
-//       item.classList.add('hidden');
-//     }
-//   })
-// }
-main();
+        </div>`
+      ).join("");
+    }
+  });
+} 
+  main();
