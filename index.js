@@ -5,7 +5,7 @@ const searchBar = document.getElementById('search');
 let movieList = [];
 
 async function main() {
-  const response = await fetch(`http://www.omdbapi.com/?apikey=46b68acf&s=marvel`);
+  const response = await fetch(`https://www.omdbapi.com/?apikey=46b68acf&s=marvel`);
   const data = await response.json();
   movieList = data.Search;
   
