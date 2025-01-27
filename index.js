@@ -12,15 +12,21 @@ async function main() {
   const movieListElement = document.querySelector(".movie-list");
   movieListElement.innerHTML = movieList.map(
     (movie) => 
+      // <h1> Xori's Movie Project</h1>
       `<div class="container">
         <div class="row">
-          <div class="img__wrapper">
-            <img src="${movie.Poster}" 
-            alt="Image">
-            <div class="movie-info">
-              <h3>${movie.Title}</h3>
-              <p>${movie.Type}</p>
-              <p>${movie.Year}</p>
+          <div class="movie-list">
+            <div class="movie__wrapper">
+              <div class= "movie__container">
+              <img src="${movie.Poster}" 
+              alt="Image">
+              </div>
+              <div class="movie__wrapper--bg"></div>
+              <div class="movie-info">
+                <h3>${movie.Title}</h3>
+                <p class="movie__type">${movie.Type}</p>
+                <p class="movie__year">${movie.Year}</p>
+            </div>
             </div>
           </div>
         </div>
