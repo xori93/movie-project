@@ -61,6 +61,12 @@ input:hover {
   cursor: pointer;
 }
 
+i:hover {
+  position: absolute;
+  transform: scale(1.2);
+  top: 30%;
+}
+
 
 
 /* 
