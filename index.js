@@ -6,7 +6,12 @@ const searchIcon = document.querySelector('.search__icon')
 let movieList = [];
 
 
-async function main() {
+async function main(filter) {
+
+  if (filter === 'LATEST_MOVIE') {
+    console.log(filter)
+  }
+
   const response = await fetch(`https://www.omdbapi.com/?apikey=46b68acf&s=marvel`);
   const data = await response.json();
   movieList = data.Search;
@@ -39,10 +44,9 @@ searchIcon.addEventListener("click", () => {
 
 
 function filterBooks(event) {
-  if (event.target.value === 'LATEST_MOVIE') {
-    console.log('sort latest mvovie')
-    
-  }
+
+    renderMovies(event.target.value)
+  
 }
 
 /*
