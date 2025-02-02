@@ -2,7 +2,8 @@
 // http://www.omdbapi.com/?i=tt3896198&apikey=46b68acf
 
 const searchBar = document.getElementById('search');
-const searchIcon = document.querySelector('.search__icon')
+const searchIcon = document.querySelector('.search__icon');
+const filterSelect = document.getElementById("filter");
 let movieList = [];
 
 
@@ -43,7 +44,7 @@ searchIcon.addEventListener("click", () => {
 });
 
 
-function filterBooks(event) {
+function filterMovie(event) {
 
     renderMovies(event.target.value)
   
