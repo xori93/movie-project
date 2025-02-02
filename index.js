@@ -3,7 +3,7 @@
 
 const searchBar = document.getElementById('search');
 const searchMovie = document.querySelector('.search__icon');
-const filterSelect = document.getElementById("filter");
+const filterDropdown = document.getElementById("filter");
 const searchForm = document.getElementById('form')
 let movieList = [];
 
@@ -11,9 +11,10 @@ let movieList = [];
 
 
 async function main(filter) {
-    if (filter === 'LATEST_MOVIE') {
-        console.log(filter)
-      }
+  if (filterOption === "LATEST_MOVIE") {
+    console.log(filter)
+    // console.log(filterOption)
+  }
 
   const response = await fetch(`https://www.omdbapi.com/?apikey=46b68acf&s=marvel`);
   const data = await response.json();
@@ -65,11 +66,15 @@ searchMovie.addEventListener('click', async() => {
 
 
 
-// function filterMovie(event) {
+function filterMovie(event) {
 
-//     renderMovies(event.target.value)
+  const filterOption = event.target.value
   
-// }
+  renderMovies(event.target.value)
+
+    // renderMovies(event.target.value)
+  
+}
 
 /*
 fetchMovie.addEventListener("click", async(e) => {
