@@ -94,11 +94,40 @@ LANDING
   align-content: center;
 }
 
+.movie__top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 h1 {
   text-align: center;
+  letter-spacing: 1.9px;
   font-weight: 700;
   color: #fff;
   text-shadow: 2px 2px 2px black;
+}
+
+
+select {
+  width: 200px;
+  padding: 8px;
+  font-weight: 700;
+  font-size: 12px;
+  outline: none;
+  margin-top: 12px;
+}
+
+select:hover, option {
+  box-shadow: 0 5px 8px 3px black;
+  background-color: #082424;
+  color: #fff;
+  border: 2px solid #003333;
+}
+
+option {
+  font-size: 16px;
+  font-family: 400;
 }
 
 .movie__wrapper {
