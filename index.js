@@ -4,25 +4,56 @@ const filterDropdown = document.getElementById("filter");
 const searchForm = document.getElementById('form')
 let movieList = [];
 
-async function main() {
+// when the page loads I want to show marvel movies
+// Call the function that does this job
+main();
 
+// This function will get all the marvel movies and show them 
+async function main() {
+  // make an api call to get the data. 
+  // create and endpoint to get the data to marvel movies
   const response = await fetch(`https://www.omdbapi.com/?apikey=46b68acf&s=marvel`);
+  // wait for the response for the api.
+  // convert response into json data
   const data = await response.json();
+  // I have the data let me look at it
+  // console.log(data);
+  // The data I want is in an array called search
+  // Store that in my movie list.
   movieList = data.Search;
+  // console.log(movieList)
   
+  // I want to show these movies on the webpage.
+  // Where do they go?
+  // Target the movie list element on the page.
   const movieListElement = document.querySelector(".movie-list");
+  // I want to create a movie card for each element in the array.
   movieListElement.innerHTML = movieList.map(
     (movie) => 
       renderMovies(movie)
   ).join("");
+
+
+// step by step code
+  // let movieCards = movieList.map(
+  //   (movie) => 
+  //     renderMovies(movie)
+  // );
+  // console.log(movieCards.join(""))
+    // This is the html that goes on the page
+  // movieListElement.innerHTML = movieCards.join("")
 }
 
 
 // The search function will be async
 async function search() {
+  // I need to know which movie to search for
   // store the value of the input
   const searchText = searchBar.value;
-  // make an api call. and show the value of searchText
+  // console.log(searchText);
+  
+  // I want to get the movies that match searchText.
+  // make an api call using this data in the endpoint.
   const response = await fetch(`https://www.omdbapi.com/?apikey=46b68acf&s=${searchText}`);
   // make the api frontend
   const data = await response.json();
@@ -68,8 +99,8 @@ function filterMovie(event) {
 
 filterDropdown.addEventListener('change', filterMovie);
 
-main();
 
+// The function is createing HTML for a single movie.
 function renderMovies(movie) {
   return `<div class="container">
         <div class="row">
